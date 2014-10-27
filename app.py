@@ -12,14 +12,12 @@ class FizzBuzz():
 
     # Run from 1 to "end", which is the given number.
     def run(self, end, out=sys.stdout):
-        for i in range(1, end + 1):
+        for i in range(2, end + 1):
 		for x in range(2, i):
-			if (x == (i - 1)):
-				print i, "is a prime"
-			elif ((i % x) == 0):
+			if ((i % x) == 0):
 				break
-			else:
-				continue
+		else:
+			print i, "is a prime"
 
     # Seems to give correct values. Tested with 1 and 2.
     def calc(self, i):
