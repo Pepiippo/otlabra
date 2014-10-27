@@ -1,12 +1,7 @@
 #!/usr/bin/python
 import sys
 
-# Implementation of FizzBuzz v0.00
-
-# Version 1: if number is divisible by 3, print Fizz
-#            if number is divisible by 5, print Buzz
-#            if both, print FizzBuzz
-#            else print number
+# Implementation of FizzBuzz v2.00
 
 # Version 2: if number is prime, print "<number> is a prime" instead
 #            Take one argument,  and count up to it
@@ -15,17 +10,16 @@ class FizzBuzz():
     def __init__(self):
         pass
 
-    # Run from 1 to "end" (In this case to 100). Maybe. Test fails for some reason (not anymore)
+    # Run from 1 to "end", which is the given number.
     def run(self, end, out=sys.stdout):
         for i in range(1, end + 1):
-		if (((i % 5) ==0) and ((i % 3) == 0)):
-			print "FizzBuzz"
-		elif ((i % 3) == 0):
-			print "Fizz"
-		elif ((i % 5) == 0):
-			print "Buzz"
-		else:
-            		print >> out, self.calc(i)
+		for x in range(2, i):
+			if (x == (i - 1)):
+				print i, "is a prime"
+			elif ((i % x) == 0):
+				break
+			else:
+				continue
 
     # Seems to give correct values. Tested with 1 and 2.
     def calc(self, i):
@@ -33,4 +27,4 @@ class FizzBuzz():
 
 if __name__ == "__main__":
     app = FizzBuzz()
-    app.run(100)
+    app.run(int(sys.argv[1]))
